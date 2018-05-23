@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LaGuineuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clase">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEstacion" Type="int" />
+          <Property Name="IdEscuela" Type="int" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="HoraInicio" Type="float" />
+          <Property Name="HoraFin" Type="float" />
+          <Property Name="Duracion" Type="float" />
+          <Property Name="IdNivel" Type="int" />
+          <Property Name="EsClub" Type="bit" />
+          <Property Name="IdCliente" Type="int" />
+          <Property Name="Personas" Type="int" />
+          <Property Name="IdEdades" Type="int" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ClaseCliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClase" Type="int" Nullable="false" />
+          <Property Name="IdCliente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClaseMonitor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMonitor" Type="int" />
+          <Property Name="IdClase" Type="int" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaNacimiento" Type="datetime" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdClub" Type="int" />
+          <Property Name="IdNivel" Type="int" />
+          <Property Name="IdEscuela" Type="int" Nullable="false" />
+          <Property Name="IdDeporte" Type="int" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="FechaCrea" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdNivel" Type="int" />
+          <Property Name="IdEscuela" Type="int" />
+        </EntityType>
+        <EntityType Name="ClubCliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClub" Type="int" />
+          <Property Name="IdCliente" Type="int" />
+        </EntityType>
+        <EntityType Name="Deporte">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Escuela">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="FotoPerfil" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="EscuelaCliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCliente" Type="int" Nullable="false" />
+          <Property Name="IdEscuela" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EscuelaDeporte">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEscuela" Type="int" Nullable="false" />
+          <Property Name="IdDeporte" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EscuelaDisponible">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEscuela" Type="int" Nullable="false" />
+          <Property Name="FechaEvento" Type="date" />
+        </EntityType>
+        <EntityType Name="EscuelaEstacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEstacion" Type="int" Nullable="false" />
+          <Property Name="IdEscuela" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country" Type="varchar" MaxLength="7" />
+          <Property Name="IdDefecto" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="22" />
+          <Property Name="Notes" Type="varchar" MaxLength="13" />
+        </EntityType>
+        <EntityType Name="Monitor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaNacimiento" Type="datetime" />
+          <Property Name="FotoPerfil" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdEscuela" Type="int" Nullable="false" />
+          <Property Name="FechaCrea" Type="datetime" />
+          <Property Name="FechaElim" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MonitorDisponible">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMonitor" Type="int" Nullable="false" />
+          <Property Name="FechaEvento" Type="date" />
+        </EntityType>
+        <EntityType Name="MonitorEstacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMonitor" Type="int" Nullable="false" />
+          <Property Name="IdEstacion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MonitorTitulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMonitor" Type="int" Nullable="false" />
+          <Property Name="IdTitulo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nivel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Titulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="500" />
+          <Property Name="FechaCrea" Type="datetime" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdEscuela" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEscuela" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaCrea" Type="datetime" />
+          <Property Name="FechaUltimaConexion" Type="datetime" />
+          <Property Name="EsGestor" Type="bit" />
+          <Property Name="FechaDesactivado" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="LaGuineuModelStoreContainer">
+          <EntitySet Name="Clase" EntityType="Self.Clase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClaseCliente" EntityType="Self.ClaseCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClaseMonitor" EntityType="Self.ClaseMonitor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Club" EntityType="Self.Club" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClubCliente" EntityType="Self.ClubCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deporte" EntityType="Self.Deporte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Escuela" EntityType="Self.Escuela" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EscuelaCliente" EntityType="Self.EscuelaCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EscuelaDeporte" EntityType="Self.EscuelaDeporte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EscuelaDisponible" EntityType="Self.EscuelaDisponible" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EscuelaEstacion" EntityType="Self.EscuelaEstacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estacion" EntityType="Self.Estacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Monitor" EntityType="Self.Monitor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MonitorDisponible" EntityType="Self.MonitorDisponible" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MonitorEstacion" EntityType="Self.MonitorEstacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MonitorTitulo" EntityType="Self.MonitorTitulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nivel" EntityType="Self.Nivel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Titulo" EntityType="Self.Titulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LaGuineuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Estacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="IdDefecto" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="22" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Monitor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+          <Property Name="FotoPerfil" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCrea" Type="DateTime" Precision="3" />
+          <Property Name="FechaElim" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdEscuela" Type="Int32" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCrea" Type="DateTime" Precision="3" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdEscuela" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCrea" Type="DateTime" Precision="3" />
+          <Property Name="FechaUltimaConexion" Type="DateTime" Precision="3" />
+          <Property Name="IdEscuela" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EsGestor" Type="Boolean" />
+          <Property Name="FechaDesactivado" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="LaGuineuEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Estacion" EntityType="Self.Estacion" />
+          <EntitySet Name="Monitor" EntityType="Self.Monitor" />
+          <EntitySet Name="Token" EntityType="Self.Token" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="MonitorDisponible" EntityType="LaGuineuModel.MonitorDisponible" />
+          <EntitySet Name="MonitorEstacion" EntityType="LaGuineuModel.MonitorEstacion" />
+          <EntitySet Name="MonitorTitulo" EntityType="LaGuineuModel.MonitorTitulo" />
+          <EntitySet Name="Escuela" EntityType="LaGuineuModel.Escuela" />
+          <EntitySet Name="Clase" EntityType="LaGuineuModel.Clase" />
+          <EntitySet Name="ClaseCliente" EntityType="LaGuineuModel.ClaseCliente" />
+          <EntitySet Name="Cliente" EntityType="LaGuineuModel.Cliente" />
+          <EntitySet Name="Nivel" EntityType="LaGuineuModel.Nivel" />
+          <EntitySet Name="Club" EntityType="LaGuineuModel.Club" />
+          <EntitySet Name="EscuelaCliente" EntityType="LaGuineuModel.EscuelaCliente" />
+          <EntitySet Name="Deporte" EntityType="LaGuineuModel.Deporte" />
+          <EntitySet Name="EscuelaDeporte" EntityType="LaGuineuModel.EscuelaDeporte" />
+          <EntitySet Name="EscuelaEstacion" EntityType="LaGuineuModel.EscuelaEstacion" />
+          <EntitySet Name="Titulo" EntityType="LaGuineuModel.Titulo" />
+          <EntitySet Name="EscuelaDisponible" EntityType="LaGuineuModel.EscuelaDisponible" />
+          <EntitySet Name="ClaseMonitor" EntityType="LaGuineuModel.ClaseMonitor" />
+          <EntitySet Name="ClubCliente" EntityType="LaGuineuModel.ClubCliente" />
+        </EntityContainer>
+        <EntityType Name="MonitorDisponible">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMonitor" Type="Int32" Nullable="false" />
+          <Property Name="FechaEvento" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="MonitorEstacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMonitor" Type="Int32" Nullable="false" />
+          <Property Name="IdEstacion" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MonitorTitulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdMonitor" Type="Int32" Nullable="false" />
+          <Property Name="IdTitulo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Escuela">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FotoPerfil" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Clase">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEstacion" Type="Int32" />
+          <Property Name="IdEscuela" Type="Int32" />
+          <Property Name="IdNivel" Type="Int32" />
+          <Property Name="EsClub" Type="Boolean" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="HoraInicio" Type="Double" />
+          <Property Name="HoraFin" Type="Double" />
+          <Property Name="Duracion" Type="Double" />
+          <Property Name="IdCliente" Type="Int32" />
+          <Property Name="Personas" Type="Int32" />
+          <Property Name="IdEdades" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ClaseCliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClase" Type="Int32" Nullable="false" />
+          <Property Name="IdCliente" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+          <Property Name="IdClub" Type="Int32" />
+          <Property Name="IdNivel" Type="Int32" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdEscuela" Type="Int32" Nullable="false" />
+          <Property Name="IdDeporte" Type="Int32" />
+          <Property Name="IdUsuario" Type="Int32" />
+          <Property Name="FechaCrea" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Nivel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdNivel" Type="Int32" />
+          <Property Name="IdEscuela" Type="Int32" />
+        </EntityType>
+        <EntityType Name="EscuelaCliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCliente" Type="Int32" Nullable="false" />
+          <Property Name="IdEscuela" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Deporte">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EscuelaDeporte">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEscuela" Type="Int32" Nullable="false" />
+          <Property Name="IdDeporte" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EscuelaEstacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEstacion" Type="Int32" Nullable="false" />
+          <Property Name="IdEscuela" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Titulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EscuelaDisponible">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaEvento" Type="DateTime" Precision="0" />
+          <Property Name="IdEscuela" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClaseMonitor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMonitor" Type="Int32" />
+          <Property Name="IdClase" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ClubCliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClub" Type="Int32" />
+          <Property Name="IdCliente" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LaGuineuModelStoreContainer" CdmEntityContainer="LaGuineuEntities">
+          <EntitySetMapping Name="Estacion">
+            <EntityTypeMapping TypeName="LaGuineuModel.Estacion">
+              <MappingFragment StoreEntitySet="Estacion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="IdDefecto" ColumnName="IdDefecto" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monitor">
+            <EntityTypeMapping TypeName="LaGuineuModel.Monitor">
+              <MappingFragment StoreEntitySet="Monitor">
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="IdEscuela" ColumnName="IdEscuela" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="FotoPerfil" ColumnName="FotoPerfil" />
+                <ScalarProperty Name="FechaCrea" ColumnName="FechaCrea" />
+                <ScalarProperty Name="FechaElim" ColumnName="FechaElim" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Token">
+            <EntityTypeMapping TypeName="LaGuineuModel.Token">
+              <MappingFragment StoreEntitySet="Token">
+                <ScalarProperty Name="IdEscuela" ColumnName="IdEscuela" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="FechaCrea" ColumnName="FechaCrea" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="LaGuineuModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="FechaDesactivado" ColumnName="FechaDesactivado" />
+                <ScalarProperty Name="EsGestor" ColumnName="EsGestor" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdEscuela" ColumnName="IdEscuela" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FechaCrea" ColumnName="FechaCrea" />
+                <ScalarProperty Name="FechaUltimaConexion" ColumnName="FechaUltimaConexion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonitorDisponible">
+            <EntityTypeMapping TypeName="LaGuineuModel.MonitorDisponible">
+              <MappingFragment StoreEntitySet="MonitorDisponible">
+                <ScalarProperty Name="FechaEvento" ColumnName="FechaEvento" />
+                <ScalarProperty Name="IdMonitor" ColumnName="IdMonitor" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonitorEstacion">
+            <EntityTypeMapping TypeName="LaGuineuModel.MonitorEstacion">
+              <MappingFragment StoreEntitySet="MonitorEstacion">
+                <ScalarProperty Name="IdEstacion" ColumnName="IdEstacion" />
+                <ScalarProperty Name="IdMonitor" ColumnName="IdMonitor" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonitorTitulo">
+            <EntityTypeMapping TypeName="LaGuineuModel.MonitorTitulo">
+              <MappingFragment StoreEntitySet="MonitorTitulo">
+                <ScalarProperty Name="IdTitulo" ColumnName="IdTitulo" />
+                <ScalarProperty Name="IdMonitor" ColumnName="IdMonitor" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Escuela">
+            <EntityTypeMapping TypeName="LaGuineuModel.Escuela">
+              <MappingFragment StoreEntitySet="Escuela">
+                <ScalarProperty Name="FotoPerfil" ColumnName="FotoPerfil" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clase">
+            <EntityTypeMapping TypeName="LaGuineuModel.Clase">
+              <MappingFragment StoreEntitySet="Clase">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdEdades" ColumnName="IdEdades" />
+                <ScalarProperty Name="Personas" ColumnName="Personas" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="EsClub" ColumnName="EsClub" />
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="IdEscuela" ColumnName="IdEscuela" />
+                <ScalarProperty Name="IdEstacion" ColumnName="IdEstacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClaseCliente">
+            <EntityTypeMapping TypeName="LaGuineuModel.ClaseCliente">
+              <MappingFragment StoreEntitySet="ClaseCliente">
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdClase" ColumnName="IdClase" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="LaGuineuModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="FechaCrea" ColumnName="FechaCrea" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdDeporte" ColumnName="IdDeporte" />
+                <ScalarProperty Name="IdEscuela" ColumnName="IdEscuela" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="IdClub" ColumnName="IdClub" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nivel">
+            <EntityTypeMapping TypeName="LaGuineuModel.Nivel">
+              <MappingFragment StoreEntitySet="Nivel">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Club">
+            <EntityTypeMapping TypeName="LaGuineuModel.Club">
+              <MappingFragment StoreEntitySet="Club">
+                <ScalarProperty Name="IdEscuela" ColumnName="IdEscuela" />
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EscuelaCliente">
+            <EntityTypeMapping TypeName="LaGuineuModel.EscuelaCliente">
+              <MappingFragment StoreEntitySet="EscuelaCliente">
+                <ScalarProperty Name="IdEscuela" ColumnName="IdEscuela" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deporte">
+            <EntityTypeMapping TypeName="LaGuineuModel.Deporte">
+              <MappingFragment StoreEntitySet="Deporte">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EscuelaDeporte">
+            <EntityTypeMapping TypeName="LaGuineuModel.EscuelaDeporte">
+              <MappingFragment StoreEntitySet="EscuelaDeporte">
+                <ScalarProperty Name="IdDeporte" ColumnName="IdDeporte" />
+                <ScalarProperty Name="IdEscuela" ColumnName="IdEscuela" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EscuelaEstacion">
+            <EntityTypeMapping TypeName="LaGuineuModel.EscuelaEstacion">
+              <MappingFragment StoreEntitySet="EscuelaEstacion">
+                <ScalarProperty Name="IdEscuela" ColumnName="IdEscuela" />
+                <ScalarProperty Name="IdEstacion" ColumnName="IdEstacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Titulo">
+            <EntityTypeMapping TypeName="LaGuineuModel.Titulo">
+              <MappingFragment StoreEntitySet="Titulo">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EscuelaDisponible">
+            <EntityTypeMapping TypeName="LaGuineuModel.EscuelaDisponible">
+              <MappingFragment StoreEntitySet="EscuelaDisponible">
+                <ScalarProperty Name="IdEscuela" ColumnName="IdEscuela" />
+                <ScalarProperty Name="FechaEvento" ColumnName="FechaEvento" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClaseMonitor">
+            <EntityTypeMapping TypeName="LaGuineuModel.ClaseMonitor">
+              <MappingFragment StoreEntitySet="ClaseMonitor">
+                <ScalarProperty Name="IdClase" ColumnName="IdClase" />
+                <ScalarProperty Name="IdMonitor" ColumnName="IdMonitor" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClubCliente">
+            <EntityTypeMapping TypeName="LaGuineuModel.ClubCliente">
+              <MappingFragment StoreEntitySet="ClubCliente">
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdClub" ColumnName="IdClub" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

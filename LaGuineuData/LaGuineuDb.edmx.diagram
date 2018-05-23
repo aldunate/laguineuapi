@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="22d41f2c8fff46cdbe8c93afee52a6ab" Name="Diagram1" ZoomLevel="112">
+        <EntityTypeShape EntityType="LaGuineuModel.Estacion" Width="1.5" PointX="7.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaGuineuModel.Monitor" Width="1.5" PointX="9.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaGuineuModel.Token" Width="1.5" PointX="7.125" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaGuineuModel.Usuario" Width="1.5" PointX="7.125" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaGuineuModel.MonitorDisponible" Width="1.5" PointX="11.875" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaGuineuModel.MonitorEstacion" Width="1.5" PointX="9.75" PointY="0.5" />
+        <EntityTypeShape EntityType="LaGuineuModel.MonitorTitulo" Width="1.5" PointX="11.875" PointY="2.75" />
+        <EntityTypeShape EntityType="LaGuineuModel.Escuela" Width="1.5" PointX="2.875" PointY="3.25" />
+        <EntityTypeShape EntityType="LaGuineuModel.Clase" Width="1.5" PointX="7.125" PointY="8.625" />
+        <EntityTypeShape EntityType="LaGuineuModel.ClaseCliente" Width="1.5" PointX="5" PointY="9.125" />
+        <EntityTypeShape EntityType="LaGuineuModel.Cliente" Width="1.5" PointX="2.875" PointY="6.25" />
+        <EntityTypeShape EntityType="LaGuineuModel.Nivel" Width="1.5" PointX="5" PointY="7.25" />
+        <EntityTypeShape EntityType="LaGuineuModel.Club" Width="1.5" PointX="5" PointY="4.875" />
+        <EntityTypeShape EntityType="LaGuineuModel.EscuelaCliente" Width="1.5" PointX="0.5" PointY="7.125" />
+        <EntityTypeShape EntityType="LaGuineuModel.Deporte" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="LaGuineuModel.EscuelaDeporte" Width="1.5" PointX="0.5" PointY="2.625" />
+        <EntityTypeShape EntityType="LaGuineuModel.EscuelaEstacion" Width="1.5" PointX="2.875" PointY="0.5" />
+        <EntityTypeShape EntityType="LaGuineuModel.Titulo" Width="1.5" PointX="11.875" PointY="0.5" />
+        <EntityTypeShape EntityType="LaGuineuModel.EscuelaDisponible" Width="1.5" PointX="0.5" PointY="4.75" />
+        <EntityTypeShape EntityType="LaGuineuModel.ClaseMonitor" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="LaGuineuModel.ClubCliente" Width="1.5" PointX="0.75" PointY="10.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

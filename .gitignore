@@ -1,0 +1,12 @@
+
+
+.vscode/
+packages/
+LaGuineuApi/bin/
+LaGuineuApi/obj/
+LaGuineuApi/.vs/
+.vs/
+LaGuineuData/bin/
+LaGuineuData/obj/
+LaGuineuService/bin/
+LaGuineuService/obj/
